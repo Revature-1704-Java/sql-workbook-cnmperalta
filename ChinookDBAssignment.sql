@@ -131,3 +131,17 @@ delete from customer where firstname='Robert' and lastname='Walter';
 -- 7.0 JOINS
 -- inner join that joins customers and orders and specifies the name of the customer and the invoiceid
 select c.firstname, c.lastname, i.invoiceid from customer c inner join invoice i on i.customerid=c.customerid;
+
+-- outer join that joins the customer and invoice table, specifying customerid, firstname, lastname, invoiceid, and total
+select c.customerid, c.firstname, c.lastname, i.invoiceid, i.total from customer c left join invoice i on i.customerid=c.customerid;
+
+-- right join that joins the albums and artist specifying artist name and title
+select ar.name, al.title from artist ar right join album al on ar.artistid=al.artistid;
+
+-- cross join that joins the album and artist and sorts by artist name in ascending order
+select * from album cross join artist order by artist.name asc;
+
+-- self join on the employee table joining on the reportsto column
+select * from employee e1 inner join employee e2 on e1.reportsto=e2.employeeid;
+
+-- complicated join assignment that joins all tables in the chinook database
