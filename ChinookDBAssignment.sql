@@ -117,15 +117,50 @@ delete from invoice where customerid=(
 delete from customer where firstname='Robert' and lastname='Walter';
 
 -- function that returns the current time
---create or replace function getmysystemtime return timestamp with time zone is mysystemtime timestamp with time zone;
---begin
---    mysystemtime := systimestamp;
---    dbms_output.put_line(mysystemtime);
---    return mysystemtime;
---end;
+create or replace function getmysystemtime return timestamp with time zone is mysystemtime timestamp with time zone;
+begin
+    mysystemtime := current_timestamp;
+    return mysystemtime;
+end;
+/
 
 -- function that returns the length of a mediatype from the mediatype table
+create or replace function getmediatypelength (gmediatype in varchar2) return number
+is gmediatypelength number;
+begin
+    gmediatypelength:=length(gmediatype);
+    return gmediatypelength;
+end;
+/
 
+-- function that returns the average total of all invoices
+create or replace function getinvoicetotalavg return number
+is invoicetotalavg number;
+begin
+    select avg(total) into invoicetotalavg from invoice;
+    return invoicetotalavg;
+end;
+/
+
+create or replace type track_tabtype is object (
+    trackid number,
+    name varchar2(200),
+    albumid number,
+    mediatypeid number,
+    genreid number,
+    composer varchar2(200),
+    milliseconds number,
+    bytes number,
+    unitprice number(10,2)
+);
+-- function that returns the most expensive track
+--create or replace function getmostexpensivetrack return track_tabtype
+--is mostexpensivetrack track_tabtype;
+--begin
+--select track_tabtype(track.trackid, track.name, track.albumid, track.mediatypeid, track.genreid, track.composer, track.milliseconds, track.bytes, track.unitprice)
+--into mostexpensivetrack from track where 
+--end;
+--/
 
 
 -- 7.0 JOINS
@@ -145,3 +180,14 @@ select * from album cross join artist order by artist.name asc;
 select * from employee e1 inner join employee e2 on e1.reportsto=e2.employeeid;
 
 -- complicated join assignment that joins all tables in the chinook database
+select * from album
+inner join artist on album.artistid=artist.artistid
+inner join track on track.albumid=album.albumid
+inner join genre on track.genreid=genre.genreid
+inner join mediatype on track.mediatypeid=mediatype.mediatypeid
+inner join playlisttrack on track.trackid=playlisttrack.trackid
+inner join playlist on playlisttrack.playlistid=playlist.playlistid
+inner join invoiceline on invoiceline.trackid=track.trackid
+inner join invoice on invoiceline.invoiceid=invoice.invoiceid
+inner join customer on invoice.customerid=customer.customerid
+inner join employee on customer.supportrepid=employee.employeeid;
