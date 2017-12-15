@@ -323,6 +323,28 @@ begin
     addnewcustomer(62, 'Juan', 'Bawagan', 'jbawagan@gmail.com');
 end;
 
+-- 6.0 TRIGGERS
+-- after insert trigger on the employee table fired after a new record is inserted into the table
+create or replace trigger tr_after_insert_employee
+after insert on employee
+begin
+dbms_output.put_line('Handle aftermath of employee insertion.');
+end;
+
+-- after update trigger on the album table
+create or replace trigger tr_after_update_album
+after update on album
+begin
+dbms_output.put_line('Handle aftermath of album update.');
+end;
+
+-- after delete trigger on the customer table fired after a row is deleted from the table
+create or replace trigger tr_after_delete_customer
+after delete on customer
+begin
+dbms_output.put_line('Handle aftermath of customer delete.');
+end;
+
 -- 7.0 JOINS
 -- inner join that joins customers and orders and specifies the name of the customer and the invoiceid
 select c.firstname, c.lastname, i.invoiceid from customer c inner join invoice i on i.customerid=c.customerid;
