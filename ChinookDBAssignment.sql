@@ -142,6 +142,11 @@ begin
 end;
 /
 
+begin
+dbms_output.put_line(getinvoicetotalavg());
+end;
+
+-- create types to hold the results from a query
 create or replace type track_tabtype is object (
     trackid number,
     name varchar2(200),
@@ -153,15 +158,170 @@ create or replace type track_tabtype is object (
     bytes number,
     unitprice number(10,2)
 );
--- function that returns the most expensive track
---create or replace function getmostexpensivetrack return track_tabtype
---is mostexpensivetrack track_tabtype;
---begin
---select track_tabtype(track.trackid, track.name, track.albumid, track.mediatypeid, track.genreid, track.composer, track.milliseconds, track.bytes, track.unitprice)
---into mostexpensivetrack from track where 
---end;
---/
+/
+create or replace type track_collection is table of track_tabtype;
+/
+-- function that returns the most expensive tracks
+-- returns the most expensive tracks as a collection of type track_collection
+create or replace function getmostexpensivetracks return track_collection
+is mostexpensivetracks track_collection;
+begin
+mostexpensivetracks:=track_collection();
+select track_tabtype(TRACKID, NAME, ALBUMID, MEDIATYPEID, GENREID, COMPOSER, MILLISECONDS, BYTES, UNITPRICE) bulk collect into mostexpensivetracks from track where track.unitprice=(select max(track.unitprice) from track);
+return mostexpensivetracks;
+end;
+/
 
+select * from table(getmostexpensivetracks());
+
+-- function that returns the average price of invoiceline items in the invoiceline
+create or replace function getinvoicelineaverage return number
+is
+    invoicelineaverage number;
+    n_invoicelines number;
+begin
+    invoicelineaverage:=0;
+    n_invoicelines:=0;
+    for i in (select unitprice, quantity from invoiceline)
+    loop
+        invoicelineaverage:=invoicelineaverage + i.unitprice * i.quantity;
+        n_invoicelines:=n_invoicelines+1;
+    end loop;
+    invoicelineaverage:=invoicelineaverage/n_invoicelines;
+    return invoicelineaverage;
+end;
+/
+begin
+    dbms_output.put_line(getinvoicelineaverage);
+end;
+
+-- function that returns all employees born after 1968
+create or replace type emp_born_after_68 is object (
+    firstname varchar2(20),
+    lastname varchar2(20),
+    birthdate date
+);
+
+create or replace type tab_emp_born_after_68 is table of emp_born_after_68;
+
+create or replace function getemployeesbornafter68 return tab_emp_born_after_68
+is
+emps_born_after_68 tab_emp_born_after_68;
+begin
+emps_born_after_68:=tab_emp_born_after_68();
+select emp_born_after_68(firstname, lastname, birthdate) bulk collect into emps_born_after_68 from employee where birthdate>'31-DEC-68';
+return emps_born_after_68;
+end;
+
+select * from table(getemployeesbornafter68());
+
+-- 4.0 Stored Procedures
+-- 4.1 Stored procedure that selects the first and last names of all employees
+create or replace procedure showemployeenames (s out SYS_REFCURSOR) is
+begin
+    open s for select firstname, lastname from employee;
+end;
+/
+declare
+s sys_refcursor;
+fname employee.firstname%type;
+lname employee.lastname%type;
+begin
+showemployeenames(s);
+loop
+    fetch s into fname, lname;
+    exit when s%notfound;
+    dbms_output.put_line(fname||' '||lname);
+end loop;
+close s;
+end;
+
+-- 4.2 
+-- stored procedure that updates the personal information of an employee
+create or replace procedure updateemployeename (eid in number, fname in varchar2, lname in varchar2) is
+begin
+    update employee set firstname=fname where employeeid=eid;
+    update employee set lastname=lname where employeeid=eid;
+    dbms_output.put_line('Personal information update for employee with ID: '||eid);
+    commit;
+    
+    exception
+        when others
+        then dbms_output.put_line('Failed to update employee information.');
+        rollback;
+end;
+/
+begin
+updateemployeename(10, 'Katherine', 'Tan');
+end;
+
+-- procedure that returns the manager of an employee
+create or replace procedure getemployeemanager(mfname out varchar2, mlname out varchar2, eid in number) is
+reportstoid number;
+begin
+    select reportsto into reportstoid from employee where employeeid=eid;
+    select firstname into mfname from employee where employeeid=reportstoid;
+    select lastname into mlname from employee where employeeid=reportstoid;
+end;
+/
+declare
+fname employee.firstname%type;
+lname employee.lastname%type;
+begin
+getemployeemanager(fname, lname, 10);
+dbms_output.put_line(fname||' '||lname);
+end;
+
+-- 4.3
+create or replace procedure getcustomernameandcompany (cfname out varchar2, clname out varchar, ccompany out varchar2, cid in number) is
+begin
+    select firstname into cfname from customer where customerid=cid;
+    select lastname into clname from customer where customerid=cid;
+    select company into ccompany from customer where customerid=cid;
+end;
+/
+declare
+    fname customer.firstname%type;
+    lname customer.lastname%type;
+    company customer.company%type;
+begin
+    getcustomernameandcompany(fname, lname, company, 19);
+    dbms_output.put_line(fname||' '||lname||' '||company);
+end;
+
+-- 5.0 TRANSACTIONS
+-- transaction that deletes an invoice given an id
+create or replace procedure deleteinvoicewithid (iid in number) is
+begin
+    delete from invoiceline where invoiceid=iid;
+    delete from invoice where invoiceid=iid;
+    commit;
+    
+    exception
+        when others
+        then dbms_output.put_line('Failed to delete invoice.');
+        rollback;
+end;
+/
+begin
+deleteinvoicewithid(319);
+end;
+
+-- transaction that inserts a new customer
+create or replace procedure addnewcustomer (cid in number, cfname in varchar2, clname in varchar2, cemail in varchar2) is
+begin
+    insert into customer (customerid, firstname, lastname, email) values (cid, cfname, clname, cemail);
+    commit;
+    
+    exception
+        when others
+        then dbms_output.put_line('Failed to add customer.');
+        rollback;
+end;
+/
+begin
+    addnewcustomer(62, 'Juan', 'Bawagan', 'jbawagan@gmail.com');
+end;
 
 -- 7.0 JOINS
 -- inner join that joins customers and orders and specifies the name of the customer and the invoiceid
