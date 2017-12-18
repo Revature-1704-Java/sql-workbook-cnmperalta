@@ -650,8 +650,8 @@ INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (138, 'The Song Remains The 
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (139, 'A TempestadeTempestade Ou O Livro Dos Dias', 99);
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (140, 'Mais Do Mesmo', 99);
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (141, 'Greatest Hits', 100);
-INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (142, 'Lulu Santos - RCA 100 Anos De Música - �?lbum 01', 101);
-INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (143, 'Lulu Santos - RCA 100 Anos De Música - �?lbum 02', 101);
+INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (142, 'Lulu Santos - RCA 100 Anos De Música - �?lbum 01', 101);
+INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (143, 'Lulu Santos - RCA 100 Anos De Música - �?lbum 02', 101);
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (144, 'Misplaced Childhood', 102);
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (145, 'Barulhinho Bom', 103);
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES (146, 'Seek And Shall Find: More Of The Best (1963-1981)', 104);
@@ -1235,7 +1235,7 @@ INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milli
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (376, 'Vôo Sobre o Horizonte', 33, 1, 7, 'J.r.Bertami/Parana', 225097, 7528825, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (377, 'A Paz', 33, 1, 7, 'Donato/Gilberto Gil', 263183, 8619173, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (378, 'Wave (Vou te Contar)', 33, 1, 7, 'Antonio Carlos Jobim', 271647, 9057557, 0.99);
-INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (379, '�?gua de Beber', 33, 1, 7, 'Antonio Carlos Jobim/Vinicius de Moraes', 146677, 4866476, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (379, '�?gua de Beber', 33, 1, 7, 'Antonio Carlos Jobim/Vinicius de Moraes', 146677, 4866476, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (380, 'Samba da Bençaco', 33, 1, 7, 'Baden Powell/Vinicius de Moraes', 282200, 9440676, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (381, 'Pode Parar', 33, 1, 7, 'Jorge Vercilo/Jota Maranhao', 179408, 6046678, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (382, 'Menino do Rio', 33, 1, 7, 'Caetano Veloso', 262713, 8737489, 0.99);
@@ -1713,7 +1713,7 @@ INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, B
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (854, 'Boa Noite', 69, 1, 7, 338755, 11283582, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (855, 'Fato Consumado', 69, 1, 7, 211565, 7018586, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (856, 'Faltando Um Pedaço', 69, 1, 7, 267728, 8788760, 0.99);
-INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (857, '�?libi', 69, 1, 7, 213237, 6928434, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (857, '�?libi', 69, 1, 7, 213237, 6928434, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (858, 'Esquinas', 69, 1, 7, 280999, 9096726, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (859, 'Se...', 69, 1, 7, 286432, 9413777, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Milliseconds, Bytes, UnitPrice) VALUES (860, 'Eu Te Devoro', 69, 1, 7, 311614, 10312775, 0.99);
@@ -2816,7 +2816,7 @@ INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milli
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1957, 'Kir Royal', 161, 1, 16, 'Mônica Marianno', 234788, 7706552, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1958, 'O Que Vai Em Meu Coração', 161, 1, 16, 'Mônica Marianno', 255373, 8366846, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1959, 'Aos Leões', 161, 1, 16, 'Mônica Marianno', 234684, 7790574, 0.99);
-INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1960, 'Dois �?ndios', 161, 1, 16, 'Mônica Marianno', 219271, 7213072, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1960, 'Dois �?ndios', 161, 1, 16, 'Mônica Marianno', 219271, 7213072, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1961, 'Noite Negra', 161, 1, 16, 'Mônica Marianno', 206811, 6819584, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1962, 'Beijo do Olhar', 161, 1, 16, 'Mônica Marianno', 252682, 8369029, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1963, 'É Fogo', 161, 1, 16, 'Mônica Marianno', 194873, 6501520, 0.99);
@@ -3305,7 +3305,7 @@ INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milli
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2446, 'So Beautiful', 141, 1, 1, 'Mick Hucknall', 298083, 9837832, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2447, 'Angel', 141, 1, 1, 'Carolyn Franklin and Sonny Saunders', 240561, 7880256, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2448, 'Fairground', 141, 1, 1, 'Mick Hucknall', 263888, 8793094, 0.99);
-INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2449, '�?gua E Fogo', 199, 1, 1, 'Chico Amaral/Edgard Scandurra/Samuel Rosa', 278987, 9272272, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2449, '�?gua E Fogo', 199, 1, 1, 'Chico Amaral/Edgard Scandurra/Samuel Rosa', 278987, 9272272, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2450, 'Três Lados', 199, 1, 1, 'Chico Amaral/Samuel Rosa', 233665, 7699609, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2451, 'Ela Desapareceu', 199, 1, 1, 'Chico Amaral/Samuel Rosa', 250122, 8289200, 0.99);
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (2452, 'Balada Do Amor Inabalável', 199, 1, 1, 'Fausto Fawcett/Samuel Rosa', 240613, 8025816, 0.99);
@@ -15822,6 +15822,7 @@ INSERT INTO PlaylistTrack (PlaylistId, TrackId) VALUES (18, 597);
 commit;
 
 -- 2.0 SQL Queries
+-- 2.1
 -- select all records in employee table
 select * from employee;
 -- select all records in employee table with the last name King
@@ -15829,11 +15830,13 @@ select * from employee where lastname='King';
 -- select all records in employee table with the first namen Andrew and with a null reportsto field
 select * from employee where firstname='Andrew' and reportsto is null;
 
+-- 2.2
 -- order album in  descending order by title
 select * from album order by title desc;
 -- order first names in customer by city in ascending order
 select firstname from customer order by city asc;
 
+-- 2.3
 -- insert two new records into the Genre table
 insert into genre values(26, 'KPOP');
 insert into genre values(27, 'OPM');
@@ -15905,6 +15908,7 @@ insert into customer (customerid, firstname, lastname, company, address, city, s
 'ddelarosa@gmail.com'
 );
 
+-- 2.4
 -- Update customer row Aaron Mitchell to have the name Robert Walter
 update customer set
 firstname='Robert',
@@ -15914,15 +15918,19 @@ where firstname='Aaron' and lastname='Mitchell';
 -- Update artist with name Creedence Clearwater Revival to name CCR
 update artist set name='CCR' where name='Creedence Clearwater Revival';
 
+-- 2.5
 --  select all invoices with billing address like "T%"
 select * from invoice where billingaddress like 'T%';
 
+
+-- 2.6
 -- select all invoices that have a total between 15 and 50
 select * from invoice where total between 15 and 50;
 
 -- select all employees hired between 1st of June 2003 and 1st of March 2004
-select * from employee where hiredate between TO_DATE('2003-6-1 00:00:00','yyyy-mm-dd hh24:mi:ss') and TO_DATE('2004-1-3 00:00:00','yyyy-mm-dd hh24:mi:ss');
+select * from employee where hiredate between TO_DATE('2003-6-1 00:00:00','yyyy-mm-dd hh24:mi:ss') and TO_DATE('2004-3-1 00:00:00','yyyy-mm-dd hh24:mi:ss');
 
+-- 2.7
 -- delete a record in customer table where the name is Robert Walter
 -- delete all invoiceline records that reference the invoices that reference Robert Walter which deletes 38 rows
 delete from invoiceline where invoiceid in (
@@ -15940,6 +15948,7 @@ delete from invoice where customerid=(
 delete from customer where firstname='Robert' and lastname='Walter';
 
 -- 3.0 Functions
+-- 3.1
 -- function that returns the current time
 create or replace function getmysystemtime return timestamp with time zone is mysystemtime timestamp with time zone;
 begin
@@ -15957,6 +15966,7 @@ begin
 end;
 /
 
+-- 3.2
 -- function that returns the average total of all invoices
 create or replace function getinvoicetotalavg return number
 is invoicetotalavg number;
@@ -15994,6 +16004,7 @@ return mostexpensivetracks;
 end;
 /
 
+-- 3.3
 -- function that returns the average price of invoiceline items in the invoiceline
 create or replace function getinvoicelineaverage return number
 is
@@ -16012,6 +16023,7 @@ begin
 end;
 /
 
+-- 3.4
 -- function that returns all employees born after 1968
 create or replace type emp_born_after_68 is object (
     firstname varchar2(20),
